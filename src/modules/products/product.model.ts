@@ -49,6 +49,7 @@ const productSchema = new Schema<TProduct>(
       type: [variantSchema],
       require: true,
     },
+    inventory: inventorySchema,
   },
   {
     versionKey: false, // skip unwanted field __v in database
