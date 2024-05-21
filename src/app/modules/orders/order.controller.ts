@@ -1,15 +1,21 @@
 import { Request, Response } from 'express';
 import orderValidationSchema from './order.validation';
 import { OrderServices } from './order.service';
+import { ProductServices } from '../products/product.service';
 
 // For post Order
 const createOrder = async (req: Request, res: Response) => {
   try {
     const { order: orderData } = req.body;
-    // Data validation using zod
+    const productExists = await ProductServices.getProductByIdFromDB(
+      orderData.productId,
+    );
+    console.log({ productExists });
+
     const zodParsedData = orderValidationSchema.parse(orderData);
 
     const result = await OrderServices.createOrderIntoDB(zodParsedData);
+    console.log({ result });
 
     res.status(200).json({
       success: true,

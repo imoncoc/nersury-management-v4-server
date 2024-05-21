@@ -70,6 +70,14 @@ const searchProductsInDB = async (term: string) => {
   return result;
 };
 
+const getProductByIdFromDB = async (id: string) => {
+  const result = await productModel.find({
+    _id: new mongoose.Types.ObjectId(id),
+  });
+
+  return result;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
@@ -77,4 +85,5 @@ export const ProductServices = {
   deleteProductFromDB,
   updateProductInDB,
   searchProductsInDB,
+  getProductByIdFromDB,
 };
