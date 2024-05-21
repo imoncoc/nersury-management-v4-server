@@ -38,7 +38,7 @@ const getAllProducts = async (req: Request, res: Response) => {
       result = await ProductServices.searchProductsInDB(searchTerm as string);
       console.log({ result });
       if (result.length === 0) {
-        return res.status(200).json({
+        return res.status(500).json({
           success: false,
           message: `No products found matching the search term '${searchTerm}'`,
           data: [],

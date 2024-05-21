@@ -57,6 +57,7 @@ const deleteProductFromDB = async (id: string) => {
   return result;
 };
 
+// For searching by name, description, category
 const searchProductsInDB = async (term: string) => {
   const result = await productModel.find({
     $or: [
