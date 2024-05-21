@@ -30,7 +30,29 @@ const createProduct = async (req: Request, res: Response) => {
 // For get all products
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductServices.getAllProductsFromDB();
+    const { searchTerm } = req.query;
+    // console.log({ searchTerm });
+    let result;
+    if (searchTerm) {
+      // console.log('serach term works');
+      result = await ProductServices.searchProductsInDB(searchTerm as string);
+      console.log({ result });
+      if (result.length === 0) {
+        return res.status(200).json({
+          success: false,
+          message: `No products found matching the search term '${searchTerm}'`,
+          data: [],
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: `Products matching search term '${searchTerm}' fetched successfully!`,
+          data: result,
+        });
+      }
+    }
+
+    result = await ProductServices.getAllProductsFromDB();
     res.status(200).json({
       success: true,
       message: 'Products fetched successfully!',
@@ -64,6 +86,46 @@ const getSingleProduct = async (req: Request, res: Response) => {
   }
 };
 
+const updateProduct = async (req: Request, res: Response) => {
+  try {
+    const { productId } = req.params;
+    const { product: updateData } = req.body;
+
+    console.log('Received product data:', updateData);
+    // we can use zod validation if pass every data other wise as it now
+    // const zodParsedData = productValidationSchema.parse(updateData);
+
+    console.log('Validated product data:', updateData);
+    const result = await ProductServices.updateProductInDB(
+      productId,
+      updateData,
+    );
+
+    console.log('Update result:', result);
+
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: 'Product not found or invalid productId',
+      });
+      return;
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Product updated successfully!',
+      data: result,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      success: false,
+      message: err.message || 'something went wrong',
+      error: err,
+    });
+  }
+};
+
+// Delete Single Product
 const deleteProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
@@ -82,9 +144,37 @@ const deleteProduct = async (req: Request, res: Response) => {
   }
 };
 
+// const searchProducts = async (req: Request, res: Response) => {
+//   try {
+//     const { searchTerm } = req.query;
+//     if (!searchTerm) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'Search term is required!',
+//       });
+//     }
+//     const result = await ProductServices.searchProductsInDB(
+//       searchTerm as string,
+//     );
+//     res.status(200).json({
+//       success: true,
+//       message: `Products matching search term ${searchTerm} fetched successfully!`,
+//       data: result,
+//     });
+//   } catch (err: any) {
+//     res.status(500).json({
+//       success: false,
+//       message: err.message || 'something went wrong',
+//       error: err,
+//     });
+//   }
+// };
+
 export const ProductControllers = {
   createProduct,
   getAllProducts,
   getSingleProduct,
+  updateProduct,
   deleteProduct,
+  // searchProducts,
 };
