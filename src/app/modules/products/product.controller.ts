@@ -89,20 +89,12 @@ const getSingleProduct = async (req: Request, res: Response) => {
 const updateProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
-    const { product: updateData } = req.body;
+    const updateData = req.body;
 
-    console.log('Received product data:', updateData);
-    // we can use zod validation if pass every data other wise as it now
-    // const zodParsedData = productValidationSchema.parse(updateData);
-
-    console.log('Validated product data:', updateData);
     const result = await ProductServices.updateProductInDB(
       productId,
       updateData,
     );
-
-    console.log('Update result:', result);
-
     if (!result) {
       res.status(404).json({
         success: false,

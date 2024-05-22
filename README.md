@@ -1,5 +1,46 @@
 # batch-3-assignment-2
 
+# Assignment 2
+
+An Express.js project using MongoDB and TypeScript with Zod validation.
+
+## Prerequisites
+
+- Node.js v14.x or later
+- npm v6.x or later / yarn v1.x or later
+- MongoDB
+
+## Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/imoncoc/assignment-2.git
+   cd assignment-2
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set Up Environment Variables**
+   Create a `.env` file in the root directory:
+
+4. **Compile TypeScript**
+
+   ```bash
+   npm run build
+   ```
+
+5. **Run the Project**
+   ```bash
+   npm run start:dev
+   ```
+
+The application will run on `http://localhost:5000`.
+
 - **Objective**: Develop a Express application with TypeScript as the programming language, integrating MongoDB with Mongoose for effective data management. Ensure data integrity through validation with Zod.
 
 ### Set up VERCEL live link
@@ -17,7 +58,7 @@
 ```json
 {
   "product": {
-    "name": "Redme note 13 pro",
+    "name": "iPhone 14",
     "description": "A sleek and powerful smartphone with cutting-edge features.",
     "price": 999,
     "category": "Electronics",
@@ -47,7 +88,7 @@
   "success": true,
   "message": "Product created successfully",
   "data": {
-    "name": "Redme note 13 pro",
+    "name": "iPhone",
     "description": "A sleek and powerful smartphone with cutting-edge features.",
     "price": 999,
     "category": "Electronics",
@@ -68,5 +109,185 @@
     },
     "_id": "664da14674e3efc92b1fc36a"
   }
+}
+```
+
+### **2. Retrieve a List of All Products**
+
+- **Sample Request Body**:
+- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products`**
+- **Method: `GET`**
+
+- **Sample Response**:
+
+```json
+{
+    "success": true,
+    "message": "Products fetched successfully!",
+    "data": [
+        {
+            "_id": "664cb6b893e34ad4917ebbab",
+            "name": "iPhone 15",
+            "description": "A sleek and powerful smartphone with cutting-edge features.",
+            "price": 1199,
+            "category": "Electronics",
+            "tags": [
+                "smartphone",
+                "Apple",
+                "iOS"
+            ],
+            "variants": [
+                {
+                    "type": "Color",
+                    "value": "Midnight Blue"
+                },
+                {
+                    "type": "Storage Capacity",
+                    "value": "256GB"
+                }
+            ],
+            "inventory": {
+                "quantity": 50,
+                "inStock": true
+            }
+        },
+       ....more
+    ]
+}
+```
+
+### **3. Retrieve a Specific Product by ID**
+
+- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products/664cb6de93e34ad4917ebbaf`**
+- **Method: `GET`**
+- **Sample Response**:
+
+```json
+{
+  "success": true,
+  "message": "Product fetched successfully!",
+  "data": [
+    {
+      "_id": "664cb6de93e34ad4917ebbaf",
+      "name": "Samsung Galaxy S21",
+      "description": "High-performance Android smartphone with advanced camera capabilities.",
+      "price": 799,
+      "category": "Electronics",
+      "tags": ["smartphone", "Samsung", "Android"],
+      "variants": [
+        {
+          "type": "Color",
+          "value": "Phantom Black"
+        },
+        {
+          "type": "Storage Capacity",
+          "value": "128GB"
+        }
+      ],
+      "inventory": {
+        "quantity": 30,
+        "inStock": false
+      }
+    }
+  ]
+}
+```
+
+### **4. Update Product Information**
+
+- **Sample Request Body**:
+- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products/:productId`**
+- **Method: `PUT`**
+
+```json
+{
+  "name": "iPhone 11",
+  "price": 599,
+  "description": "A sleek and powerful but older smartphone with cutting-edge features."
+}
+```
+
+- **Sample Response**:
+
+```json
+{
+  "success": true,
+  "message": "Product updated successfully!",
+  "data": {
+    "_id": "664cb6b893e34ad4917ebbab",
+    "name": "iPhone 11",
+    "description": "A sleek and powerful but older smartphone with cutting-edge features.",
+    "price": 599,
+    "category": "Electronics",
+    "tags": ["smartphone", "Apple", "iOS"],
+    "variants": [
+      {
+        "type": "Color",
+        "value": "Midnight Blue"
+      },
+      {
+        "type": "Storage Capacity",
+        "value": "256GB"
+      }
+    ],
+    "inventory": {
+      "quantity": 50,
+      "inStock": true
+    }
+  }
+}
+```
+
+### **5. Update Delete a Product**
+
+- **Sample Request Body**:
+- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products/:productId`**
+- **Method: `DELETE`**
+
+```json
+{
+  "success": true,
+  "message": "Product deleted successfully!",
+  "data": {
+    "acknowledged": true,
+    "deletedCount": 1
+  }
+}
+```
+
+### **6. Search a product**
+
+- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products/samsung`**
+- **Method: `GET`**
+- **Sample Response**:
+
+```json
+{
+  "success": true,
+  "message": "Products matching search term 'samsung' fetched successfully!",
+  "data": [
+    {
+      "_id": "664cb6de93e34ad4917ebbaf",
+      "name": "Samsung Galaxy S21",
+      "description": "High-performance Android smartphone with advanced camera capabilities.",
+      "price": 799,
+      "category": "Electronics",
+      "tags": ["smartphone", "Samsung", "Android"],
+      "variants": [
+        {
+          "type": "Color",
+          "value": "Phantom Black"
+        },
+        {
+          "type": "Storage Capacity",
+          "value": "128GB"
+        }
+      ],
+      "inventory": {
+        "quantity": 30,
+        "inStock": false
+      }
+    }
+  ]
 }
 ```

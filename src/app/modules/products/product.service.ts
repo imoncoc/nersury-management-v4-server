@@ -32,9 +32,6 @@ const updateProductInDB = async (
 
   const objectId = new mongoose.Types.ObjectId(productId);
 
-  // Log the ObjectId conversion
-  console.log('Converted ObjectId:', objectId);
-
   // Check if the document exists before updating
   const existingProduct = await productModel.findById(objectId);
   if (!existingProduct) {
