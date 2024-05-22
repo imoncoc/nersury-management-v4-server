@@ -8,6 +8,11 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+const getController = (req: Request, res: Response) => {
+  res.send('Hello Next level Developer!');
+};
+app.get('/', getController);
+
 // application routes
 app.use('/api', ProductRoutes);
 app.use('/api', OrderRoutes);
@@ -18,11 +23,5 @@ app.all('*', (req: Request, res: Response) => {
     message: 'Route is not found!',
   });
 });
-
-const getController = (req: Request, res: Response) => {
-  res.send('Hello Next level Developer!');
-};
-
-app.get('/', getController);
 
 export default app;
