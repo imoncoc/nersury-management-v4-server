@@ -78,6 +78,21 @@ const getProductByIdFromDB = async (id: string) => {
   return result;
 };
 
+const updateProductInventoryFromDB = async (
+  productId: string,
+  newQuantity: number,
+  inStock: boolean,
+) => {
+  const objectId = new mongoose.Types.ObjectId(productId);
+  const result = await productModel.updateOne(
+    { _id: objectId },
+    {
+      $set: { 'inventory.quantity': newQuantity, 'inventory.inStock': inStock },
+    },
+  );
+  return result.modifiedCount > 0;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
@@ -86,4 +101,5 @@ export const ProductServices = {
   updateProductInDB,
   searchProductsInDB,
   getProductByIdFromDB,
+  updateProductInventoryFromDB,
 };

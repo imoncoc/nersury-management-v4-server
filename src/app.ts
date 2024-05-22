@@ -12,6 +12,13 @@ app.use(cors());
 app.use('/api', ProductRoutes);
 app.use('/api', OrderRoutes);
 
+app.all('*', (req: Request, res: Response) => {
+  res.status(400).json({
+    success: false,
+    message: 'Route is not found!',
+  });
+});
+
 const getController = (req: Request, res: Response) => {
   res.send('Hello Next level Developer!');
 };
