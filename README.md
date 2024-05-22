@@ -8,7 +8,11 @@
 
 ## **Products API**
 
+### **1. Create a New Product**
+
 - **Sample Request Body**:
+- **Endpoint**: **`/api/movies`**
+- **Method: `POST`**
 
 ```json
 {
