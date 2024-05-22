@@ -35,7 +35,6 @@ const updateProductInDB = async (
   // Check if the document exists before updating
   const existingProduct = await productModel.findById(objectId);
   if (!existingProduct) {
-    console.log('Product not found for id:', objectId);
     return null;
   }
 

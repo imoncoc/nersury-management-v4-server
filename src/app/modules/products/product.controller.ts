@@ -5,9 +5,7 @@ import productValidationSchema from './product.validation';
 // For post product
 const createProduct = async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
     const { product: productData } = req.body;
-    console.log({ productData });
     // Data validation using zod
     const zodParsedData = productValidationSchema.parse(productData);
 
@@ -34,9 +32,8 @@ const getAllProducts = async (req: Request, res: Response) => {
     // console.log({ searchTerm });
     let result;
     if (searchTerm) {
-      // console.log('serach term works');
+      // console.log('search term works');
       result = await ProductServices.searchProductsInDB(searchTerm as string);
-      console.log({ result });
       if (result.length === 0) {
         return res.status(500).json({
           success: false,

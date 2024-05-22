@@ -34,7 +34,6 @@ orderSchema.pre('save', async function (next) {
     const product: Array<TProduct> = await ProductServices.getProductByIdFromDB(
       order.productId,
     );
-    console.log(product);
     if (!product) {
       return next(new Error('Product ID does not exist in the database'));
     }

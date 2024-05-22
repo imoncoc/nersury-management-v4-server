@@ -335,14 +335,6 @@ The application will run on `http://localhost:5000`.
 
 - **Sample Response**:
 
-### **2. Retrieve a List of All Products**
-
-- **Sample Request Body**:
-- **Endpoint**: **`https://mongoose-assignment-2-five.vercel.app/api/products`**
-- **Method: `GET`**
-
-- **Sample Response**:
-
 ```json
 {
     "success": true,
