@@ -26,6 +26,7 @@ const productValidationSchema = z.object({
     .array(variantValidationSchema)
     .nonempty({ message: 'At least one variant is required.' }),
   inventory: inventoryValidationSchema,
+  manufacturer: z.string().optional(),
 });
 
 export default productValidationSchema;

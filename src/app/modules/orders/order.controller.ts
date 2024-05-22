@@ -1,17 +1,15 @@
 import { Request, Response } from 'express';
 import orderValidationSchema from './order.validation';
 import { OrderServices } from './order.service';
-import { ProductServices } from '../products/product.service';
-import { TProduct } from '../products/product.interface';
 
 // For post Order
 const createOrder = async (req: Request, res: Response) => {
   try {
     const { order: orderData } = req.body;
-    const productExists = await ProductServices.getProductByIdFromDB(
-      orderData.productId,
-    );
-    console.log({ productExists });
+    // const productExists = await ProductServices.getProductByIdFromDB(
+    //   orderData.productId,
+    // );
+    // console.log({ productExists });
 
     const zodParsedData = orderValidationSchema.parse(orderData);
 
