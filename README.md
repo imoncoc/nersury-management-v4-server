@@ -335,7 +335,6 @@ The application will run on `http://localhost:5000`.
 
 - **Sample Response**:
 
-````json
 ### **2. Retrieve a List of All Products**
 
 - **Sample Request Body**:
@@ -360,7 +359,7 @@ The application will run on `http://localhost:5000`.
     ]
 }
 
-````
+```
 
 ### **3. Retrieve Orders by User Email**
 
