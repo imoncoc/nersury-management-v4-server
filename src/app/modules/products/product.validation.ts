@@ -67,6 +67,7 @@ const productValidationSchema = z.object({
       .min(1, { message: 'Toxicity description is required.' }),
     uses: z.string().min(1, { message: 'Uses description is required.' }),
   }),
+  isDeleted: z.boolean().optional(),
 });
 
 export default productValidationSchema;

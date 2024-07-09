@@ -31,4 +31,5 @@ export type TProduct = {
     toxicity: string;
     uses: string;
   };
+  isDeleted?: boolean;
 };

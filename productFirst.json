@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Strawberries",
+    "description": "Juicy and sweet strawberries perfect for adding a burst of flavor to your desserts, salads, and smoothies.",
+    "price": 10,
+    "stock": 50,
+    "availabilityStock": true,
+    "rating": 4.9,
+    "thumbnail": "https://images.unsplash.com/photo-1519180392711-496e450edf6a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "images": [
+      "https://images.unsplash.com/photo-1527777365811-cdb37e94e784?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1653226355818-fe9294f52ab1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1519180392711-496e450edf6a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1527777365811-cdb37e94e784?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1653226355818-fe9294f52ab1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1519180392711-496e450edf6a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "categoriesName": "Berries",
+    "physicalCharacteristics": {
+      "height": "8 inches",
+      "spread": "12 inches",
+      "growthRate": "Fast",
+      "matureHeight": "12 inches",
+      "matureSpread": "24 inches",
+      "plantingZone": "USDA hardiness zone 5-9"
+    },
+    "careInformation": {
+      "wateringRequirements": "Keep soil consistently moist, but not waterlogged.",
+      "sunlightRequirements": "Full sun (at least 6 hours of direct sunlight per day).",
+      "soilType": "Well-draining, slightly acidic soil.",
+      "fertilization": "Fertilize with a balanced fertilizer every 4-6 weeks during the growing season.",
+      "pruning": "Remove any dead leaves and runners to encourage healthy growth.",
+      "pestsAndDiseases": "Susceptible to slugs, aphids, and mold. Regularly inspect and treat as needed."
+    },
+    "additionalInformation": {
+      "origin": "Native to temperate regions worldwide.",
+      "seasonality": "Best planted in early spring; fruits ripen in late spring to early summer.",
+      "hardiness": "Hardy to temperatures down to 20°F; mulch in winter for protection in colder climates.",
+      "toxicity": "Non-toxic to humans and pets.",
+      "uses": "Ideal for fresh eating, making jams, and adding to desserts and salads."
+    },
+    "isDeleted": false
+  },
+  {
+    "name": "Apple Plant",
+    "description": "A delightful apple plant that produces crisp and sweet apples, perfect for snacking, baking, and making cider.",
+    "price": 35,
+    "stock": 15,
+    "availabilityStock": true,
+    "rating": 4.6,
+    "thumbnail": "https://images.unsplash.com/photo-1633744438304-36b75626f597?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "images": [
+      "https://images.unsplash.com/photo-1628486930972-c1db82d528da?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1503327655231-9a047d4772b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1633744438304-36b75626f597?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1628486930972-c1db82d528da?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1503327655231-9a047d4772b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1633744438304-36b75626f597?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "categoriesName": "Fruit Trees",
+    "physicalCharacteristics": {
+      "height": "4 feet",
+      "spread": "3 feet",
+      "growthRate": "Moderate",
+      "matureHeight": "10-20 feet",
+      "matureSpread": "10-15 feet",
+      "plantingZone": "USDA hardiness zone 3-8"
+    },
+    "careInformation": {
+      "wateringRequirements": "Water deeply once a week, more often in hot weather.",
+      "sunlightRequirements": "Full sun (at least 6 hours of direct sunlight per day).",
+      "soilType": "Well-draining, loamy soil.",
+      "fertilization": "Fertilize in early spring and mid-summer with a balanced fertilizer.",
+      "pruning": "Prune in late winter to remove dead or weak branches and to shape the plant.",
+      "pestsAndDiseases": "Susceptible to apple scab, fire blight, and codling moth. Regularly inspect and treat as needed."
+    },
+    "additionalInformation": {
+      "origin": "Native to Central Asia.",
+      "seasonality": "Flowers in spring; fruits ripen in late summer to early fall.",
+      "hardiness": "Hardy to temperatures down to -30°F; mulch in winter for extra protection in colder climates.",
+      "toxicity": "Non-toxic to humans and pets, but apple seeds contain small amounts of cyanide and should not be consumed in large quantities.",
+      "uses": "Ideal for fresh eating, baking, making cider, and adding to salads."
+    },
+    "isDeleted": false
+  }
+]
