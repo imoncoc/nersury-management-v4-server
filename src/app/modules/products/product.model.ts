@@ -45,4 +45,4 @@ const productSchema: Schema = new Schema(
   },
 );
 
-export const productModel = model<TProduct>('Product', productSchema);
+export const Product = model<TProduct>('Product', productSchema);

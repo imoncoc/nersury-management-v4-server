@@ -1,28 +1,31 @@
 import mongoose from 'mongoose';
 import { TProduct } from './product.interface';
-import { productModel } from './product.model';
+import { Product } from './product.model';
 import QueryBuilder from '../../builder/QueryBuilder';
 import { productSearchableFields } from './product.constant';
 
 const createProductIntoDB = async (product: TProduct) => {
-  const result = await productModel.create(product);
+  const result = await Product.create(product);
   return result;
 };
 
 const getAllProductsFromDB = async (query: Record<string, unknown>) => {
   // const result = await productModel.find(query)
-  const productQuery = new QueryBuilder(productModel.find(), query)
+  console.log('getAllProductsFromDB service 14:: ', query);
+  const productQuery = new QueryBuilder(Product.find(), query)
     .search(productSearchableFields)
     .filter()
     .sort()
+    .paginate()
     .fields();
-  const meta = await productQuery.countTotal();
+
   const result = await productQuery.modelQuery;
+  const meta = await productQuery.countTotal();
   return { meta, result };
 };
 
 const getSingleProductFromDB = async (productId: string) => {
-  const result = await productModel.aggregate([
+  const result = await Product.aggregate([
     {
       $match: { _id: new mongoose.Types.ObjectId(productId) },
     },
@@ -42,12 +45,12 @@ const updateProductInDB = async (
   const objectId = new mongoose.Types.ObjectId(productId);
 
   // Check if the document exists before updating
-  const existingProduct = await productModel.findById(objectId);
+  const existingProduct = await Product.findById(objectId);
   if (!existingProduct) {
     return null;
   }
 
-  const updatedProduct = await productModel.findByIdAndUpdate(
+  const updatedProduct = await Product.findByIdAndUpdate(
     new mongoose.Types.ObjectId(productId),
     { $set: updateData },
     { new: true, runValidators: true },
@@ -56,7 +59,7 @@ const updateProductInDB = async (
 };
 
 const deleteProductFromDB = async (id: string) => {
-  const result = await productModel.deleteOne({
+  const result = await Product.deleteOne({
     _id: new mongoose.Types.ObjectId(id),
   });
   return result;
@@ -64,7 +67,7 @@ const deleteProductFromDB = async (id: string) => {
 
 // For searching by name, description, category
 const searchProductsInDB = async (term: string) => {
-  const result = await productModel.find({
+  const result = await Product.find({
     $or: [
       { name: { $regex: term, $options: 'i' } },
       { description: { $regex: term, $options: 'i' } },
@@ -76,7 +79,7 @@ const searchProductsInDB = async (term: string) => {
 };
 
 const getProductByIdFromDB = async (id: string) => {
-  const result = await productModel.find({
+  const result = await Product.find({
     _id: new mongoose.Types.ObjectId(id),
   });
 
@@ -89,7 +92,7 @@ const updateProductInventoryFromDB = async (
   inStock: boolean,
 ) => {
   const objectId = new mongoose.Types.ObjectId(productId);
-  const result = await productModel.updateOne(
+  const result = await Product.updateOne(
     { _id: objectId },
     {
       $set: { 'inventory.quantity': newQuantity, 'inventory.inStock': inStock },

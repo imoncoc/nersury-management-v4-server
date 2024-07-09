@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { ProductServices } from './product.service';
 import productValidationSchema from './product.validation';
 import { TProduct } from './product.interface';
+import catchAsync from '../../utils/catchAsync';
+import sendResponse from '../../utils/sendResponse';
 
 // For post product
 const createProduct = async (req: Request, res: Response) => {
@@ -28,43 +30,56 @@ const createProduct = async (req: Request, res: Response) => {
 };
 
 // For get all products
-const getAllProducts = async (req: Request, res: Response) => {
-  try {
-    const { searchTerm } = req.query;
-    // console.log({ searchTerm });
-    let result;
-    if (searchTerm) {
-      // console.log('search term works');
-      result = await ProductServices.searchProductsInDB(searchTerm as string);
-      if (result.length === 0) {
-        return res.status(500).json({
-          success: false,
-          message: `No products found matching the search term '${searchTerm}'`,
-          data: [],
-        });
-      } else {
-        return res.status(200).json({
-          success: true,
-          message: `Products matching search term '${searchTerm}' fetched successfully!`,
-          data: result,
-        });
-      }
-    }
+// const getAllProducts = async (req: Request, res: Response) => {
+//   try {
+//     const { searchTerm } = req.query;
+//     // console.log({ searchTerm });
+//     let result;
+//     if (searchTerm) {
+//       // console.log('search term works');
+//       result = await ProductServices.searchProductsInDB(searchTerm as string);
+//       if (result.length === 0) {
+//         return res.status(500).json({
+//           success: false,
+//           message: `No products found matching the search term '${searchTerm}'`,
+//           data: [],
+//         });
+//       } else {
+//         return res.status(200).json({
+//           success: true,
+//           message: `Products matching search term '${searchTerm}' fetched successfully!`,
+//           data: result,
+//         });
+//       }
+//     }
 
-    result = await ProductServices.getAllProductsFromDB();
-    res.status(200).json({
-      success: true,
-      message: 'Products fetched successfully!',
-      data: result,
-    });
-  } catch (err: any) {
-    res.status(500).json({
-      success: false,
-      message: err.message || 'something went wrong',
-      error: err,
-    });
-  }
-};
+//     result = await ProductServices.getAllProductsFromDB();
+//     res.status(200).json({
+//       success: true,
+//       message: 'Products fetched successfully!',
+//       data: result,
+//     });
+//   } catch (err: any) {
+//     res.status(500).json({
+//       success: false,
+//       message: err.message || 'something went wrong',
+//       error: err,
+//     });
+//   }
+// };
+
+const getAllProducts = catchAsync(async (req, res) => {
+  const result = await ProductServices.getAllProductsFromDB(req.query);
+
+  console.log('getAllProducts A1 74:', req.query, result);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Products retrieved successfully',
+    data: result,
+  });
+});
 
 // For Single Product
 const getSingleProduct = async (req: Request, res: Response) => {
