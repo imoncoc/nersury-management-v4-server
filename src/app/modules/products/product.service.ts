@@ -1,15 +1,24 @@
 import mongoose from 'mongoose';
 import { TProduct } from './product.interface';
 import { productModel } from './product.model';
+import QueryBuilder from '../../builder/QueryBuilder';
+import { productSearchableFields } from './product.constant';
 
 const createProductIntoDB = async (product: TProduct) => {
   const result = await productModel.create(product);
   return result;
 };
 
-const getAllProductsFromDB = async () => {
-  const result = await productModel.find();
-  return result;
+const getAllProductsFromDB = async (query: Record<string, unknown>) => {
+  // const result = await productModel.find(query)
+  const productQuery = new QueryBuilder(productModel.find(), query)
+    .search(productSearchableFields)
+    .filter()
+    .sort()
+    .fields();
+  const meta = await productQuery.countTotal();
+  const result = await productQuery.modelQuery;
+  return { meta, result };
 };
 
 const getSingleProductFromDB = async (productId: string) => {

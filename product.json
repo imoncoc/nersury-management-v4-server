@@ -1,0 +1,76 @@
+[{
+  "Name": "string",
+  "description": "string",
+  "price": 10,
+  "stock": 10,
+  "availabilityStock": true,
+  "ratting": 5,
+  "thumbnail": "string",
+  "images": ["string", "string", "string"],
+  "categoriesName": "string",
+  "physicalCharacteristics": {
+    "height": "Current height of the plant/tree.",
+    "spread": "Expected width or spread of the plant/tree.",
+    "growthRate": "Speed at which the plant/tree grows.",
+    "matureHeight": "Expected height when the plant/tree is fully grown",
+    "matureSpread": "Expected spread when the plant/tree is fully grown.",
+    "PlantingZone": "USDA hardiness zone or other relevant planting zone information."
+  },
+  "careInformation": {
+    "watering_requirements": "Information on how often and how much to water the plant/tree.",
+    "sunlight_requirements": "Preferred amount of sunlight (e.g., full sun, partial shade, full shade).",
+    "soil_type": "Preferred soil type (e.g., sandy, loamy, clay).",
+    "fertilization": "Fertilizer recommendations and frequency.",
+    "pruning": "Pruning requirements and guidelines.",
+    "pests_and_diseases": "Common pests and diseases affecting the plant/tree and their treatments."
+  },
+  "additionalInformation": {
+    "origin": "Native region or country of the plant/tree.",
+    "seasonality": "Best planting season and flowering/fruiting season.",
+    "hardiness": "Information on how well the plant/tree can withstand cold or heat.",
+    "toxicity": "Information on whether the plant/tree is toxic to humans or pets.",
+    "uses": "Common uses (e.g., ornamental, fruit production, shade, medicinal)"
+  }
+}]
+
+
+
+
+
+    {
+  "Name": "Green Succulent in Teal Ceramic Vase",
+  "description": "A beautiful green succulent planted in a stylish teal ceramic vase, perfect for adding a touch of nature to any space.",
+  "price": 10,
+  "stock": 10,
+  "availabilityStock": true,
+  "ratting": 5,
+  "thumbnail": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "images": ["https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+"https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+"https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+  "categoriesName": "Succulents",
+  "physicalCharacteristics": {
+    "height": "6 inches",
+    "spread": "8 inches",
+    "growthRate": "Slow",
+    "matureHeight": "8 inches",
+    "matureSpread": "10 inches",
+    "PlantingZone": "USDA hardiness zone 9-11"
+  },
+  "careInformation": {
+    "watering_requirements": "Water sparingly, allowing the soil to dry out completely between waterings.",
+    "sunlight_requirements": "Prefers bright, indirect light. Can tolerate some direct sunlight.",
+    "soil_type": "Well-draining cactus or succulent soil mix.",
+    "fertilization": "Fertilize lightly once a month during the growing season (spring and summer).",
+    "pruning": "Minimal pruning required; remove dead or yellowing leaves as needed.",
+    "pests_and_diseases": "Susceptible to mealybugs and root rot. Ensure good air circulation and avoid overwatering."
+  },
+  "additionalInformation": {
+    "origin": "Native to arid regions of North America.",
+    "seasonality": "Can be planted year-round indoors; may produce small flowers in spring.",
+    "hardiness": "Hardy to temperatures above 50°F; protect from frost.",
+    "toxicity": "Non-toxic to humans and pets.",
+    "uses": "Ideal as a decorative accent for home or office spaces."
+  }
+}
+

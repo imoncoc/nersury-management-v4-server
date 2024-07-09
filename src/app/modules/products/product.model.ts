@@ -1,65 +1,39 @@
 import { Schema, model } from 'mongoose';
-import { TInventory, TProduct, TVariant } from './product.interface';
+import { TProduct } from './product.interface';
 
-const variantSchema = new Schema<TVariant>(
-  {
-    type: {
-      type: String,
-      require: true,
-    },
-    value: {
-      type: String,
-      require: true,
-    },
+const productSchema: Schema = new Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  price: { type: Number, required: true, min: 0 },
+  stock: { type: Number, required: true, min: 0 },
+  availabilityStock: { type: Boolean, required: true },
+  rating: { type: Number, required: true, min: 0 },
+  thumbnail: { type: String, required: true },
+  images: { type: [String], required: true },
+  categoriesName: { type: String, required: true },
+  physicalCharacteristics: {
+    height: { type: String, required: true },
+    spread: { type: String, required: true },
+    growthRate: { type: String, required: true },
+    matureHeight: { type: String, required: true },
+    matureSpread: { type: String, required: true },
+    plantingZone: { type: String, required: true },
   },
-  { _id: false },
-);
-
-const inventorySchema = new Schema<TInventory>(
-  {
-    quantity: {
-      type: Number,
-      require: true,
-    },
-    inStock: {
-      type: Boolean,
-      require: true,
-    },
+  careInformation: {
+    wateringRequirements: { type: String, required: true },
+    sunlightRequirements: { type: String, required: true },
+    soilType: { type: String, required: true },
+    fertilization: { type: String, required: true },
+    pruning: { type: String, required: true },
+    pestsAndDiseases: { type: String, required: true },
   },
-  { _id: false },
-);
-
-const productSchema = new Schema<TProduct>(
-  {
-    name: {
-      type: String,
-      require: true,
-    },
-    description: {
-      type: String,
-      require: true,
-    },
-    price: {
-      type: Number,
-      require: true,
-    },
-    category: {
-      type: String,
-      require: true,
-    },
-    tags: {
-      type: [],
-      require: true,
-    },
-    variants: {
-      type: [variantSchema],
-      require: true,
-    },
-    inventory: inventorySchema,
+  additionalInformation: {
+    origin: { type: String, required: true },
+    seasonality: { type: String, required: true },
+    hardiness: { type: String, required: true },
+    toxicity: { type: String, required: true },
+    uses: { type: String, required: true },
   },
-  {
-    versionKey: false, // skip unwanted field __v in database
-  },
-);
+});
 
 export const productModel = model<TProduct>('Product', productSchema);

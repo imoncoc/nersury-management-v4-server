@@ -6,16 +6,16 @@ const app: Application = express();
 
 // parsers
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
 const getController = (req: Request, res: Response) => {
-  res.send('Hello Next level Developer!');
+  res.send('Hello From Nursery Management v4 Developer!');
 };
 app.get('/', getController);
 
 // application routes
-app.use('/api', ProductRoutes);
-app.use('/api', OrderRoutes);
+app.use('/api/v4', ProductRoutes);
+app.use('/api/v4', OrderRoutes);
 
 app.all('*', (req: Request, res: Response) => {
   res.status(400).json({
