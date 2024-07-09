@@ -10,8 +10,6 @@ const createProductIntoDB = async (product: TProduct) => {
 };
 
 const getAllProductsFromDB = async (query: Record<string, unknown>) => {
-  // const result = await productModel.find(query)
-  console.log('getAllProductsFromDB service 14:: ', query);
   const productQuery = new QueryBuilder(Product.find(), query)
     .search(productSearchableFields)
     .filter()

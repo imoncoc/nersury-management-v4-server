@@ -71,8 +71,6 @@ const createProduct = async (req: Request, res: Response) => {
 const getAllProducts = catchAsync(async (req, res) => {
   const result = await ProductServices.getAllProductsFromDB(req.query);
 
-  console.log('getAllProducts A1 74:', req.query, result);
-
   sendResponse(res, {
     statusCode: 200,
     success: true,
