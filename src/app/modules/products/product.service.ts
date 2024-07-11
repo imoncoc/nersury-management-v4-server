@@ -99,12 +99,27 @@ const updateProductInventoryFromDB = async (
   return result.modifiedCount > 0;
 };
 
+// const categoriesProductsInDB = async () => {
+//   const result = await Product.find({}, 'categoriesName');
+//   const categoriesSet = new Set(
+//     result.map((product) => product.categoriesName),
+//   );
+//   const uniqueCategories = Array.from(categoriesSet);
+
+//   return uniqueCategories;
+// };
 const categoriesProductsInDB = async () => {
-  const result = await Product.find({}, 'categoriesName');
-  const categoriesSet = new Set(
-    result.map((product) => product.categoriesName),
+  const products = await Product.find({}, 'categoriesName thumbnail');
+  const categoriesMap = new Map();
+  products.forEach((product) => {
+    if (!categoriesMap.has(product.categoriesName)) {
+      categoriesMap.set(product.categoriesName, product.thumbnail);
+    }
+  });
+  const uniqueCategories = Array.from(
+    categoriesMap,
+    ([categoriesName, thumbnail]) => ({ categoriesName, thumbnail }),
   );
-  const uniqueCategories = Array.from(categoriesSet);
 
   return uniqueCategories;
 };
