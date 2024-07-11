@@ -99,6 +99,16 @@ const updateProductInventoryFromDB = async (
   return result.modifiedCount > 0;
 };
 
+const categoriesProductsInDB = async () => {
+  const result = await Product.find({}, 'categoriesName');
+  const categoriesSet = new Set(
+    result.map((product) => product.categoriesName),
+  );
+  const uniqueCategories = Array.from(categoriesSet);
+
+  return uniqueCategories;
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
@@ -108,4 +118,5 @@ export const ProductServices = {
   searchProductsInDB,
   getProductByIdFromDB,
   updateProductInventoryFromDB,
+  categoriesProductsInDB,
 };

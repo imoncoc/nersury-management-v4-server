@@ -7,5 +7,9 @@ router.get('/products', ProductControllers.getAllProducts);
 router.get('/products/:productId', ProductControllers.getSingleProduct);
 router.patch('/products/:productId', ProductControllers.updateProduct);
 router.delete('/products/:productId', ProductControllers.deleteProduct);
+router.get(
+  '/categories-product/name',
+  ProductControllers.getCategoriesProducts,
+);
 
 export const ProductRoutes = router;
