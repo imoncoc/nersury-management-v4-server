@@ -32,4 +32,9 @@ export type TProduct = {
     uses: string;
   };
   isDeleted?: boolean;
+
+  inventory?: {
+    inStock?: boolean;
+    quantity?: number;
+  };
 };

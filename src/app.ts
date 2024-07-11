@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express, { Application, Request, Response } from 'express';
 import { ProductRoutes } from './app/modules/products/product.route';
-import { OrderRoutes } from './app/modules/orders/order.router';
+// import { OrderRoutes } from './app/modules/orders/order.router';
 const app: Application = express();
 
 // parsers
@@ -15,7 +15,7 @@ app.get('/', getController);
 
 // application routes
 app.use('/api/v4', ProductRoutes);
-app.use('/api/v4', OrderRoutes);
+// app.use('/api/v4', OrderRoutes);
 
 app.all('*', (req: Request, res: Response) => {
   res.status(400).json({
