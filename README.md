@@ -1,35 +1,45 @@
-# Project Name
+# Green Leaves Nursery
+
+- live: https://mongoose-assignment-2-five.vercel.app/
 
 ## Introduction
 
-Brief introduction or tagline about the project.
+At Green Leaves Nursery, we are committed to providing exceptional customer service and expert advice to help you create and maintain beautiful green spaces. Our user-friendly website and seamless ordering process ensure a pleasant shopping experience, from selection to delivery.
 
 ## Project Description
 
-Detailed description of the project, including its purpose and goals.
+Green Leaves Nursery is your go-to online platform for high-quality trees, shrubs, and plants. Designed for both gardening enthusiasts and professional landscapers, our extensive catalog offers detailed descriptions, care instructions, and optimal growth conditions for each plant.
 
 ## Features
 
-- List of key features or functionalities.
-- Bullet points are helpful for clarity.
+- Extensive Catalog: Wide variety of plants with detailed information.
+- User-Friendly Interface: Easy navigation and responsive design.
+- Fast Delivery: Receive orders within 2-7 days.
+- Expert Support: Access to knowledgeable horticulturists for advice and assistance.
 
 ## Technology Stack
 
-- List of technologies, frameworks, and tools used in the project.
-- Example: React, Redux, Node.js, MongoDB, etc.
+- Node.js: For server-side development.
+- Express: For building the RESTful API.
+- TypeScript: For type safety and improved development experience.
+- Mongoose: For MongoDB object modeling.
 
-## Installation Guideline
+### Installation Guideline
 
-Instructions on how to install, configure, and get the project running locally.
+### Steps
 
-### Prerequisites
+**Clone the Repository**
 
-- List any software or dependencies that need to be installed beforehand (if any).
+```bash
+git clone https://github.com/imoncoc/nursery-management-v4-client
+cd nursery-management-v4-client
+
+```
 
 ### Installation Steps
 
-1. Step-by-step instructions on how to install the project.
-2. Provide code examples or commands for clarity.
+1. npm install
+2. set up .env
 
 ### Configuration
 
@@ -37,12 +47,8 @@ Instructions on how to install, configure, and get the project running locally.
 2. Add necessary configuration variables in the `.env` file.
    Example:
    ```bash
-    PORT=3000
+    PORT=5173
     DB_URL=your_db_connection_uri
     API_KEY=your_api_key_here
    ```
-3. Explain any specific configuration requirements or variables used in your project.
-
-## Usage
-
-Instructions or examples for using the project. Include screenshots or code snippets if applicable.
+3. npm run dev
