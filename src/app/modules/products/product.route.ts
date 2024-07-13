@@ -11,5 +11,9 @@ router.get(
   '/categories-product/name',
   ProductControllers.getCategoriesProducts,
 );
+router.post(
+  '/products/update-stock',
+  ProductControllers.updateStockForProducts,
+);
 
 export const ProductRoutes = router;

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { TProduct } from './product.interface';
+import { TProduct, UpdateStockInput } from './product.interface';
 import { Product } from './product.model';
 import QueryBuilder from '../../builder/QueryBuilder';
 import { productSearchableFields } from './product.constant';
@@ -124,6 +124,50 @@ const categoriesProductsInDB = async () => {
   return uniqueCategories;
 };
 
+const updateStockForProductsIntoDB = async (updates: UpdateStockInput[]) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    const results = [];
+    for (const update of updates) {
+      const { id, quantity } = update;
+
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw new Error(`Invalid productId: ${id}`);
+      }
+
+      const product = await Product.findById(id).session(session);
+      if (!product) {
+        throw new Error(`Product not found: ${id}`);
+      }
+
+      const newStock = product.stock - quantity;
+      const updatedData: Partial<TProduct> = {
+        stock: newStock,
+        availabilityStock: newStock > 0,
+      };
+
+      const updatedProduct = await Product.findByIdAndUpdate(
+        id,
+        { $set: updatedData },
+        { new: true, runValidators: true, session },
+      );
+
+      results.push(updatedProduct);
+    }
+
+    await session.commitTransaction();
+    session.endSession();
+
+    return results;
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    throw error;
+  }
+};
+
 export const ProductServices = {
   createProductIntoDB,
   getAllProductsFromDB,
@@ -134,4 +178,5 @@ export const ProductServices = {
   getProductByIdFromDB,
   updateProductInventoryFromDB,
   categoriesProductsInDB,
+  updateStockForProductsIntoDB,
 };

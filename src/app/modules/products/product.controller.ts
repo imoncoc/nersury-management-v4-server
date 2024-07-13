@@ -159,6 +159,17 @@ const getCategoriesProducts = catchAsync(async (req, res) => {
   });
 });
 
+const updateStockForProducts = catchAsync(async (req, res) => {
+  const result = await ProductServices.updateStockForProductsIntoDB(req.body);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Products categories retrieved successfully',
+    data: result,
+  });
+});
+
 export const ProductControllers = {
   createProduct,
   getAllProducts,
@@ -166,4 +177,5 @@ export const ProductControllers = {
   updateProduct,
   deleteProduct,
   getCategoriesProducts,
+  updateStockForProducts,
 };

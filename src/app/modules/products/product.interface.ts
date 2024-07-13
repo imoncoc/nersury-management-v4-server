@@ -38,3 +38,8 @@ export type TProduct = {
     quantity?: number;
   };
 };
+
+export type UpdateStockInput = {
+  id: string;
+  quantity: number;
+};

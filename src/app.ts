@@ -6,7 +6,15 @@ const app: Application = express();
 
 // parsers
 app.use(express.json());
-app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'https://nursery-management-v4.netlify.app',
+    ],
+    credentials: true,
+  }),
+);
 
 const getController = (req: Request, res: Response) => {
   res.send('Hello From Nursery Management v4 Developer!');
